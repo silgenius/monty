@@ -116,3 +116,41 @@ void swap_func(stack_t **stack, unsigned int line_number)
 	dprintf(2, "L%u: can't swap, stack too short\n", line_number);
 	exit(EXIT_FAILURE);
 }
+
+/**
+ * add_func - adds the top two elements of the stack
+ * @stack: pointer to the head of the double linked list
+ * @line_number: command line number
+ * Return: void
+ */
+
+void add_func(stack_t **stack, unsigned int line_number)
+{
+	stack_t *curr, *first, *second;
+	int sum;
+
+	curr = *stack;
+	if (curr != NULL && curr->next != NULL)
+	{
+		sum = curr->n + curr->next->n;
+		curr->next->n = sum;
+		pop_func(stack, line_number);
+		return;
+	}
+
+	dprintf(2, "L%u: can't add, stack too short\n", line_number);
+	exit(EXIT_FAILURE);
+}
+
+/**
+ * nop_func - doesn't do anything
+ * @stack: pointer to the head of the double linked list
+ * @line_number: command line number
+ * Return: void
+ */
+
+void nop_func(stack_t **stack, unsigned int line_number)
+{
+	(void **)stack;
+	(void)line_number;
+}
