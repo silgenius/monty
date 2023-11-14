@@ -8,6 +8,14 @@ void (*check_opcode(char *str))(stack_t **, unsigned int)
 		{"push", push_func},
 		{"pall", pall_func},
 		{"pint", pint_func},
+		{"pop", pop_func},
+		{"swap", swap_func},
+		{"add", add_func},
+		{"nop", nop_func},
+		{"sub", sub_func},
+		{"div", div_func},
+		{"mul", mul_func},
+		{"mod", mod_func},
 		{"NULL", NULL}
 	};
 
