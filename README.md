@@ -4,7 +4,7 @@ Welcome to the Monty Interpreter project! This initiative focuses on creating a 
 
 ## Getting started
 
-- Clone the Repository: [link](git clone https://github.com/silgenius/monty.git)
+- Clone the Repository: [git clone link](https://github.com/silgenius/monty.git)
 
 - Compile the Code
 

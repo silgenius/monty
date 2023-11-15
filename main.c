@@ -9,4 +9,6 @@ int main(int argc, char *argv[])
 	}
 
 	open_file(argv[1]);
+
+	return (0);
 }
