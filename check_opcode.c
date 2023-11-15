@@ -26,5 +26,5 @@ void (*check_opcode(char *str))(stack_t **, unsigned int)
 		i++;
 	}
 
-	return (NULL)
+	return (NULL);
 }

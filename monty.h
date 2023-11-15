@@ -38,8 +38,11 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+extern stack_t *head;
+
 void (*check_opcode(char *str))(stack_t **, unsigned int);
-char **open_file(char *file);
+void open_file(char *filename);
+int interprete_opcode(char *str_arr, int line_no);
 void push_func(stack_t **stack, unsigned int line_number);
 void pall_func(stack_t **stack, unsigned int line_number);
 void pint_func(stack_t **stack, unsigned int line_number);
