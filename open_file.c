@@ -41,6 +41,7 @@ char **open_file(char *filename)
 		exit(EXIT_FAILURE);
 	free(line);
 	free(input);
+	fclose(fptr);
 
 	return (str_arr);
 }
