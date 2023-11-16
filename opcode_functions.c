@@ -4,17 +4,33 @@
  * push_func - adds a value to the top of the stack
  * @stack: pointer to the head of the double linked list
  * @line_number: command line number
+ * @data_n: new_node data
  * Return: void
  */
 
-void push_func(stack_t **stack, unsigned int line_number)
+void push_func(stack_t **stack, unsigned int line_number, char *data_n)
 {
 	stack_t *new_node;
+	char *str;
+	int n;
 
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 		return;
-	new_node->n = line_number;
+	if (data_n == NULL)
+	{
+		str = compose_err("L%u: usage: push integer\n", line_number);
+		write_err(str);
+		exit(EXIT_FAILURE);
+	}
+	n = atoi(data_n);
+	if (n == 0)
+	{
+		str = compose_err("L%u: usage: push integer\n", line_number);
+		write_err(str);
+		exit(EXIT_FAILURE);
+	}
+	new_node->n = n;
 	new_node->prev = NULL;
 	new_node->next = *stack;
 	if ((*stack) != NULL)
@@ -26,13 +42,15 @@ void push_func(stack_t **stack, unsigned int line_number)
  * pall_func - prints the values of the stack starting from the top
  * @stack: pointer to the head of the double linked list
  * @line_number: command line number
+ * @data_n: new_node data
  * Return: void
  */
 
-void pall_func(stack_t **stack, unsigned int line_number)
+void pall_func(stack_t **stack, unsigned int line_number, char *data_n)
 {
 	stack_t *curr = *stack;
 
+	(void)data_n;
 	(void)line_number;
 	while (curr != NULL)
 	{
@@ -45,14 +63,16 @@ void pall_func(stack_t **stack, unsigned int line_number)
  * pint_func - prints the value at the top of the stack
  * @stack: pointer to the head of the double linked list
  * @line_number: command line number
+ * @data_n: new_node data
  * Return: void
  */
 
-void pint_func(stack_t **stack, unsigned int line_number)
+void pint_func(stack_t **stack, unsigned int line_number, char *data_n)
 {
 	stack_t *curr = *stack;
 	char *str;
 
+	(void)data_n;
 	if (curr != NULL)
 	{
 		printf("%d\n", curr->n);
@@ -68,14 +88,16 @@ void pint_func(stack_t **stack, unsigned int line_number)
  * pop_func - removes the top element of the stack
  * @stack: pointer to the head of the double linked list
  * @line_number: command line number
+ * @data_n: new_node data
  * Return: void
  */
 
-void pop_func(stack_t **stack, unsigned int line_number)
+void pop_func(stack_t **stack, unsigned int line_number, char *data_n)
 {
 	stack_t *curr = *stack;
 	char *str;
 
+	(void)data_n;
 	if (curr != NULL)
 	{
 		if (curr->next != NULL)
@@ -97,15 +119,17 @@ void pop_func(stack_t **stack, unsigned int line_number)
  * swap_func - swaps the top two elements of the stack
  * @stack: pointer to the head of the double linked list
  * @line_number: command line number
+ * @data_n: new_node data
  * Return: void
  */
 
-void swap_func(stack_t **stack, unsigned int line_number)
+void swap_func(stack_t **stack, unsigned int line_number, char *data_n)
 {
 	stack_t *curr, *first, *second;
 	char *str;
 	int tmp;
 
+	(void)data_n;
 	curr = *stack;
 	if (curr != NULL && curr->next != NULL)
 	{

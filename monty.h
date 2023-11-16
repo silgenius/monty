@@ -7,7 +7,7 @@
 #include <string.h>
 
 #define BUFF_SIZE 1024
-#define line_size 128
+#define line_size 64
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -36,24 +36,24 @@ typedef struct stack_s
 typedef struct instruction_s
 {
         char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+        void (*f)(stack_t **stack, unsigned int line_number, char *data_n);
 } instruction_t;
 
 
-void (*check_opcode(char *str))(stack_t **, unsigned int);
+void (*check_opcode(char *str))(stack_t **, unsigned int, char *);
 void open_file(char *filename);
 int interprete_opcode(stack_t **stack, char **str_arr, int line_no);
-void push_func(stack_t **stack, unsigned int line_number);
-void pall_func(stack_t **stack, unsigned int line_number);
-void pint_func(stack_t **stack, unsigned int line_number);
-void pop_func(stack_t **stack, unsigned int line_number);
-void swap_func(stack_t **stack, unsigned int line_number);
-void add_func(stack_t **stack, unsigned int line_number);
-void nop_func(stack_t **stack, unsigned int line_number);
-void sub_func(stack_t **stack, unsigned int line_number);
-void div_func(stack_t **stack, unsigned int line_number);
-void mul_func(stack_t **stack, unsigned int line_number);
-void mod_func(stack_t **stack, unsigned int line_number);
+void push_func(stack_t **stack, unsigned int line_number, char *data_n);
+void pall_func(stack_t **stack, unsigned int line_number, char *data_n);
+void pint_func(stack_t **stack, unsigned int line_number, char *data_n);
+void pop_func(stack_t **stack, unsigned int line_number, char *data_n);
+void swap_func(stack_t **stack, unsigned int line_number, char *data_n);
+void add_func(stack_t **stack, unsigned int line_number, char *data_n);
+void nop_func(stack_t **stack, unsigned int line_number, char *data_n);
+void sub_func(stack_t **stack, unsigned int line_number, char *data_n);
+void div_func(stack_t **stack, unsigned int line_number, char *data_n);
+void mul_func(stack_t **stack, unsigned int line_number, char *data_n);
+void mod_func(stack_t **stack, unsigned int line_number, char *data_n);
 
 char *_strsep(char **str, char *delim);
 ssize_t read_line(char **lineptr, ssize_t *bufsize, FILE *stream);
@@ -66,5 +66,7 @@ char **split_string(char *line);
 char *_strdup(char *str);
 int check_4_alpha(char *str);
 int str_to_int(char *input);
+void free_str_arr(char **str_arr);
+void free_stack(stack_t *head);
 
 #endif /* MONTY_H */

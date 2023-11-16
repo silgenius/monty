@@ -15,7 +15,7 @@ void malloc_error(void)
 
 char *compose_err(char *str, unsigned int num)
 {
-	char *err = malloc(sizeof(str) * strlen(str));
+	char *err = malloc(sizeof(char) * strlen(str)), *ptr;
 	unsigned int x = 0;
 
 	if (err == NULL)
@@ -24,6 +24,7 @@ char *compose_err(char *str, unsigned int num)
 		exit(EXIT_FAILURE);
 	}
 
+	ptr = err;
 	for (; str[x] != '\0'; x++)
 	{
 		if (str[x] == '%' && str[x + 1] == 'u')
@@ -35,12 +36,13 @@ char *compose_err(char *str, unsigned int num)
 			*err++ = str[x];
 	}
 	*err = '\0';
-	return (err);
+	return (ptr);
 }
 
 char *compose_err_str(char *str, char *filename)
 {
-	char *err = malloc(sizeof(str) * (strlen(str) + strlen(filename) + 1));
+	char *err = malloc(sizeof(char) * (strlen(str) + strlen(filename) + 1));
+	char *ptr;
 	unsigned int x = 0;
 
 	if (err == NULL)
@@ -49,6 +51,7 @@ char *compose_err_str(char *str, char *filename)
 		exit(EXIT_FAILURE);
 	}
 
+	ptr = err;
 	for (; str[x] != '\0'; x++)
 	{
 		if (str[x] == '%' && str[x + 1] == 's')
@@ -61,5 +64,5 @@ char *compose_err_str(char *str, char *filename)
 			*err++ = str[x];
 	}
 	*err = '\0';
-	return (err);
+	return (ptr);
 }

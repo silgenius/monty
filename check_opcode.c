@@ -1,6 +1,6 @@
 #include "monty.h"
 
-void (*check_opcode(char *str))(stack_t **, unsigned int)
+void (*check_opcode(char *str))(stack_t **, unsigned int, char *)
 {
 	int i = 0;
 

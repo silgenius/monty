@@ -3,7 +3,7 @@
 int interprete_opcode(stack_t **stack, char **str_arr, int line_no)
 {
 	char *ptr, *str;
-	void (*opcode_func)(stack_t **, unsigned int);
+	void (*opcode_func)(stack_t **, unsigned int, char *);
 
 	if (check_opcode(str_arr[0]) != NULL)
 		opcode_func = check_opcode(str_arr[0]);
@@ -19,6 +19,6 @@ int interprete_opcode(stack_t **stack, char **str_arr, int line_no)
 
 	/* now we have our function for command in the opcode_func and also ptr
 	 * contains the int */
-	opcode_func(stack, line_no);
+	opcode_func(stack, line_no, str_arr[1]);
 	return (1);
 }
