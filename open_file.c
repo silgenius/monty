@@ -16,7 +16,6 @@ void open_file(char *filename)
 		write_err(str);
 		exit(EXIT_FAILURE);
 	}
-
 	while (read != -1)
 	{
 		line = malloc(sizeof(char) * len);
@@ -28,10 +27,13 @@ void open_file(char *filename)
 		read = read_line(&line, &len, fptr);
 		if (read > 0)
 		{
-			check_comment(line);
+			if (check_comment(line) == 1)
+			{
+				free(line);
+				continue;
+			}
 			str_arr = split_string(line);
-			interprete_opcode(&stack, str_arr, line_number);
-			line_number++;
+			interprete_opcode(&stack, str_arr, line_number++);
 			free_str_arr(str_arr);
 		}
 		free(line);

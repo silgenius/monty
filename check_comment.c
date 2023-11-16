@@ -6,21 +6,18 @@
  * @str: argument
  * Return: void
  */
-void check_comment(char *str)
+int check_comment(char *str)
 {
 	int x = 0;
 
 	while (str[x])
 	{
+		if (str[x] == ' ')
+			continue;
+		if (str[x] != '#')
+			return (0);
 		if (str[x] == '#')
-		{
-			if (x == 0 || (str[x - 1] == ' '))
-			{
-				str[x++] = '\0';
-				while (str[x])
-					str[x] = 0;
-			}
-		}
+			return (1);
 		x++;
 	}
 }
