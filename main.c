@@ -6,6 +6,7 @@ int mode = 1;
  * main - Entry point for the program.
  * @argc: Number of command-line arguments.
  * @argv: Array of strings containing the command-line arguments.
+ * Return: an integer value indicating the program's exit status.
  */
 int main(int argc, char *argv[])
 {
