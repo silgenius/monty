@@ -43,7 +43,7 @@ extern stack_t *head;
 
 void (*check_opcode(char *str))(stack_t **, unsigned int);
 void open_file(char *filename);
-int interprete_opcode(char *str_arr, int line_no);
+int interprete_opcode(stack_t **stack, char **str_arr, int line_no);
 void push_func(stack_t **stack, unsigned int line_number);
 void pall_func(stack_t **stack, unsigned int line_number);
 void pint_func(stack_t **stack, unsigned int line_number);
@@ -63,5 +63,7 @@ char *compose_err(char *str, unsigned int num);
 void malloc_error(void);
 void write_err(char *str);
 char *compose_err_str(char *str, char *filename);
+char **split_string(char *line);
+char *_strdup(char *str);
 
 #endif /* MONTY_H */

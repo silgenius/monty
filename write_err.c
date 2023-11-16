@@ -26,7 +26,7 @@ char *compose_err(char *str, unsigned int num)
 
 	for (; str[x] != '\0'; x++)
 	{
-		if (str[x] == '%')
+		if (str[x] == '%' && str[x + 1] == 'u')
 		{
 			*err++ = 48 + (signed)num;
 			x++;
@@ -51,7 +51,7 @@ char *compose_err_str(char *str, char *filename)
 
 	for (; str[x] != '\0'; x++)
 	{
-		if (str[x] == '%')
+		if (str[x] == '%' && str[x + 1] == 's')
 		{
 			while (*filename != '\0')
 				*err++ = *filename++;
