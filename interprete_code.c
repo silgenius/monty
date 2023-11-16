@@ -20,6 +20,5 @@ int interprete_opcode(stack_t **stack, char **str_arr, int line_no)
 	/* now we have our function for command in the opcode_func and also ptr
 	 * contains the int */
 	opcode_func(stack, line_no);
-
 	return (1);
 }

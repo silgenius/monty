@@ -39,7 +39,6 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern stack_t *head;
 
 void (*check_opcode(char *str))(stack_t **, unsigned int);
 void open_file(char *filename);
@@ -65,5 +64,7 @@ void write_err(char *str);
 char *compose_err_str(char *str, char *filename);
 char **split_string(char *line);
 char *_strdup(char *str);
+int check_4_alpha(char *str);
+int str_to_int(char *input);
 
 #endif /* MONTY_H */
