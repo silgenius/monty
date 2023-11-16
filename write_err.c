@@ -15,21 +15,25 @@ void malloc_error(void)
 
 char *compose_err(char *str, unsigned int num)
 {
-	char *err = malloc(sizeof(char) * strlen(str)), *ptr;
-	unsigned int x = 0;
+	char *err, *int_str;
+	char *ptr;
+	unsigned int x, y;
 
+	int_str = convert_int_to_str(num);
+	err = malloc(sizeof(char) * (strlen(str) + strlen(int_str)));
 	if (err == NULL)
 	{
 		malloc_error();
 		exit(EXIT_FAILURE);
 	}
-
 	ptr = err;
+	x = y = 0;
 	for (; str[x] != '\0'; x++)
 	{
 		if (str[x] == '%' && str[x + 1] == 'u')
 		{
-			*err++ = 48 + (signed)num;
+			while (int_str[y] != '\0')
+				*err++ = int_str[y++];
 			x++;
 		}
 		else
@@ -65,4 +69,44 @@ char *compose_err_str(char *str, char *filename)
 	}
 	*err = '\0';
 	return (ptr);
+}
+
+/**
+ * convert_int_to_str - converts an integer to a string
+ * @n: integer
+ * Return: pointer to string
+ */
+
+char *convert_int_to_str(int n)
+{
+	int tmp = n;
+	unsigned int len = 0, count = 1, x = 0;
+	char *str;
+
+	while (tmp > 9)
+	{
+		tmp /= 10;
+		count *= 10;
+	}
+	tmp = n;
+	if (n == 0)
+		len++;
+	while (tmp > 0)
+	{
+		tmp /= 10;
+		len++;
+	}
+	str = malloc(sizeof(char) * (len + 1));
+	if (str == NULL)
+	{
+		malloc_error();
+		exit(EXIT_FAILURE);
+	}
+	for (; count >= 1; count /= 10)
+	{
+		str[x] = ((n / count) % 10) + 48;
+		x++;
+	}
+	str[x] = '\0';
+	return (str);
 }
