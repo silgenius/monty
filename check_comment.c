@@ -20,4 +20,5 @@ int check_comment(char *str)
 			return (1);
 		x++;
 	}
+	return (0);
 }
