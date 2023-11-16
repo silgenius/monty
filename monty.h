@@ -59,5 +59,9 @@ void mod_func(stack_t **stack, unsigned int line_number);
 char *_strsep(char **str, char *delim);
 ssize_t read_line(char **lineptr, ssize_t *bufsize, FILE *stream);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+char *compose_err(char *str, unsigned int num);
+void malloc_error(void);
+void write_err(char *str);
+char *compose_err_str(char *str, char *filename);
 
 #endif /* MONTY_H */

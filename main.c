@@ -2,9 +2,11 @@
 
 int main(int argc, char *argv[])
 {
+	char *str = "USAGE: monty file\n";
+
 	if (argc != 2)
 	{
-		dprintf(2, "USAGE: monty file\n");
+		write(2, str, strlen(str));
 		exit(EXIT_FAILURE);
 	}
 

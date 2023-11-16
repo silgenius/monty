@@ -3,15 +3,22 @@
 void open_file(char *filename)
 {
 	FILE *fptr;
-	char *line = NULL;
-	ssize_t len = 0;
-	size_t read;
+	char *line, *str;
+	ssize_t len = 1024, read;
 	int line_number = 1;
 
 	fptr = fopen(filename, "r");
 	if (fptr == NULL)
 	{
-		dprintf(2, "Error: Can't open file %s\n", filename);
+		str = compose_err_str("Error: Can't open file %s\n", filename);
+		write_err(str);
+		exit(EXIT_FAILURE);
+	}
+
+	line = malloc(sizeof(char) * len);
+	if (line == NULL)
+	{
+		malloc_error();
 		exit(EXIT_FAILURE);
 	}
 

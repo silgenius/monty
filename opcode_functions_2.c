@@ -10,6 +10,7 @@
 void add_func(stack_t **stack, unsigned int line_number)
 {
 	stack_t *curr;
+	char *str;
 	int sum;
 
 	curr = *stack;
@@ -21,7 +22,8 @@ void add_func(stack_t **stack, unsigned int line_number)
 		return;
 	}
 
-	dprintf(2, "L%u: can't add, stack too short\n", line_number);
+	str = compose_err("L%u: can't add, stack too short\n", line_number);
+	write_err(str);
 	exit(EXIT_FAILURE);
 }
 
@@ -48,6 +50,7 @@ void nop_func(stack_t **stack, unsigned int line_number)
 void sub_func(stack_t **stack, unsigned int line_number)
 {
 	stack_t *curr;
+	char *str;
 	int sub;
 
 	curr = *stack;
@@ -59,7 +62,8 @@ void sub_func(stack_t **stack, unsigned int line_number)
 		return;
 	}
 
-	dprintf(2, "L%u: can't sub, stack too short\n", line_number);
+	str = compose_err("L%u: can't sub, stack too short\n", line_number);
+	write_err(str);
 	exit(EXIT_FAILURE);
 }
 
@@ -73,6 +77,7 @@ void sub_func(stack_t **stack, unsigned int line_number)
 void div_func(stack_t **stack, unsigned int line_number)
 {
 	stack_t *curr;
+	char *str;
 	int res;
 
 	curr = *stack;
@@ -84,7 +89,8 @@ void div_func(stack_t **stack, unsigned int line_number)
 		return;
 	}
 
-	dprintf(2, "L%u: can't div, stack too short\n", line_number);
+	str = compose_err("L%u: can't div, stack too short\n", line_number);
+	write_err(str);
 	exit(EXIT_FAILURE);
 }
 
@@ -98,6 +104,7 @@ void div_func(stack_t **stack, unsigned int line_number)
 void mul_func(stack_t **stack, unsigned int line_number)
 {
 	stack_t *curr;
+	char *str;
 	int res;
 
 	curr = *stack;
@@ -109,6 +116,7 @@ void mul_func(stack_t **stack, unsigned int line_number)
 		return;
 	}
 
-	dprintf(2, "L%u: can't mul, stack too short\n", line_number);
+	str = compose_err("L%u: can't mul, stack too short\n", line_number);
+	write_err(str);
 	exit(EXIT_FAILURE);
 }

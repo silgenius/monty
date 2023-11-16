@@ -10,6 +10,7 @@
 void mod_func(stack_t **stack, unsigned int line_number)
 {
 	stack_t *curr;
+	char *str;
 	int res;
 
 	curr = *stack;
@@ -17,7 +18,9 @@ void mod_func(stack_t **stack, unsigned int line_number)
 	{
 		if (curr->n == 0)
 		{
-			dprintf(2, "L%u: division by zero\n", line_number);
+			str = compose_err("L%u: division by zero\n",
+					  line_number);
+			write_err(str);
 			exit(EXIT_FAILURE);
 		}
 		res = curr->next->n % curr->n;
@@ -26,6 +29,7 @@ void mod_func(stack_t **stack, unsigned int line_number)
 		return;
 	}
 
-	dprintf(2, "L%u: can't mod, stack too short\n", line_number);
+	str = compose_err("L%u: can't mod, stack too short\n", line_number);
+	write_err(str);
 	exit(EXIT_FAILURE);
 }

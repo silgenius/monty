@@ -51,6 +51,7 @@ void pall_func(stack_t **stack, unsigned int line_number)
 void pint_func(stack_t **stack, unsigned int line_number)
 {
 	stack_t *curr = *stack;
+	char *str;
 
 	if (curr != NULL)
 	{
@@ -58,7 +59,8 @@ void pint_func(stack_t **stack, unsigned int line_number)
 		return;
 	}
 
-	dprintf(2, "L%u: can't pint, stack empty\n", line_number);
+	str = compose_err("L%u: can't pint, stack empty\n", line_number);
+	write_err(str);
 	exit(EXIT_FAILURE);
 }
 
@@ -72,6 +74,7 @@ void pint_func(stack_t **stack, unsigned int line_number)
 void pop_func(stack_t **stack, unsigned int line_number)
 {
 	stack_t *curr = *stack;
+	char *str;
 
 	if (curr != NULL)
 	{
@@ -85,7 +88,8 @@ void pop_func(stack_t **stack, unsigned int line_number)
 		return;
 	}
 
-	dprintf(2, "L%u: can't pop an empty stack\n", line_number);
+	str = compose_err("L%u: can't pop an empty stack\n", line_number);
+	write_err(str);
 	exit(EXIT_FAILURE);
 }
 
@@ -99,6 +103,7 @@ void pop_func(stack_t **stack, unsigned int line_number)
 void swap_func(stack_t **stack, unsigned int line_number)
 {
 	stack_t *curr, *first, *second;
+	char *str;
 	int tmp;
 
 	curr = *stack;
@@ -112,6 +117,7 @@ void swap_func(stack_t **stack, unsigned int line_number)
 		return;
 	}
 
-	dprintf(2, "L%u: can't swap, stack too short\n", line_number);
+	str = compose_err("L%u: can't swap, stack too short\n", line_number);
+	write_err(str);
 	exit(EXIT_FAILURE);
 }
