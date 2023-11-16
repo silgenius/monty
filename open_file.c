@@ -28,6 +28,7 @@ void open_file(char *filename)
 		read = read_line(&line, &len, fptr);
 		if (read > 0)
 		{
+			check_comment(line);
 			str_arr = split_string(line);
 			interprete_opcode(&stack, str_arr, line_number);
 			line_number++;

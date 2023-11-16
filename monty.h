@@ -69,5 +69,6 @@ int str_to_int(char *input, int *res);
 void free_str_arr(char **str_arr);
 void free_stack(stack_t *head);
 char *convert_int_to_str(int n);
+void check_comment(char *str);
 
 #endif /* MONTY_H */
