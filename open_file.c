@@ -4,10 +4,9 @@ void open_file(char *filename)
 {
 	FILE *fptr;
 	char *line = NULL;
-	size_t len = 0, read;
+	ssize_t len = 0;
+	size_t read;
 	int line_number = 1;
-
-	len = 0;
 
 	fptr = fopen(filename, "r");
 	if (fptr == NULL)
@@ -16,7 +15,7 @@ void open_file(char *filename)
 		exit(EXIT_FAILURE);
 	}
 
-	while ((read = getline(&line, &len, fptr)) != -1)
+	while ((read = read_line(&line, &len, fptr)) != -1)
 	{
 		interprete_opcode(line, line_number);
 		line_number++;

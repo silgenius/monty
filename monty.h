@@ -1,12 +1,13 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 
 #define BUFF_SIZE 1024
-
+#define line_size 128
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -54,5 +55,9 @@ void sub_func(stack_t **stack, unsigned int line_number);
 void div_func(stack_t **stack, unsigned int line_number);
 void mul_func(stack_t **stack, unsigned int line_number);
 void mod_func(stack_t **stack, unsigned int line_number);
+
+char *_strsep(char **str, char *delim);
+ssize_t read_line(char **lineptr, ssize_t *bufsize, FILE *stream);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 
 #endif /* MONTY_H */
