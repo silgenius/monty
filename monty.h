@@ -38,11 +38,10 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern stack_t *head;
 
 void (*check_opcode(char *str))(stack_t **, unsigned int);
 void open_file(char *filename);
-int interprete_opcode(char *str_arr, int line_no);
+int interprete_opcode(char *str_arr, int line_no, stack_t **head_ptr);
 void push_func(stack_t **stack, unsigned int line_number);
 void pall_func(stack_t **stack, unsigned int line_number);
 void pint_func(stack_t **stack, unsigned int line_number);
@@ -54,5 +53,8 @@ void sub_func(stack_t **stack, unsigned int line_number);
 void div_func(stack_t **stack, unsigned int line_number);
 void mul_func(stack_t **stack, unsigned int line_number);
 void mod_func(stack_t **stack, unsigned int line_number);
+
+int check_4_alpha(char *str);
+int str_to_int(char *input);
 
 #endif /* MONTY_H */

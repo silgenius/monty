@@ -16,10 +16,10 @@ void push_func(stack_t **stack, unsigned int line_number)
 		return;
 	new_node->n = line_number;
 	new_node->prev = NULL;
-	new_node->next = *head;
-	if ((*head) != NULL)
-		(*head)->prev = new_node;
-	(*head) = new_node;
+	new_node->next = *stack;
+	if ((*stack) != NULL)
+		(*stack)->prev = new_node;
+	(*stack) = new_node;
 }
 
 /**
