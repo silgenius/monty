@@ -1,5 +1,13 @@
 #include "monty.h"
 
+/**
+ * interprete_opcode - Interprets and executes an opcode.
+ * @stack: Pointer to a pointer to the stack.
+ * @str_arr: Pointer to an array of strings containing the opcode and arguments.
+ * @line_no: The current line number being interpreted.
+ *
+ * Return: 1 if successful, 0 otherwise.
+ */
 int interprete_opcode(stack_t **stack, char **str_arr, int line_no)
 {
 	char *ptr, *str;

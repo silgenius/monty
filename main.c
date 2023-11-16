@@ -2,6 +2,11 @@
 
 int mode = 1;
 
+/**
+ * main - Entry point for the program.
+ * @argc: Number of command-line arguments.
+ * @argv: Array of strings containing the command-line arguments.
+ */
 int main(int argc, char *argv[])
 {
 	char *str = "USAGE: monty file\n";
