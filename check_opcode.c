@@ -1,5 +1,11 @@
 #include "monty.h"
 
+/**
+ * check_opcode - Checks an opcode and returns a function pointer.
+ * @str: Pointer to the string containing the opcode.
+ *
+ * Return: A function pointer corresponding to the opcode.
+ */
 void (*check_opcode(char *str))(stack_t **, unsigned int, char *)
 {
 	int i = 0;

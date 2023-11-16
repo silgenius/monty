@@ -1,5 +1,13 @@
 #include "monty.h"
 
+/**
+ * open_file - Opens a file with the specified filename.
+ * @filename: Pointer to the string containing the filename.
+ *
+ * This function attempts to open the file with the given filename.
+ * If the file opening is successful, it performs further operations
+ * related to file handling.
+ */
 void open_file(char *filename)
 {
 	FILE *fptr;
