@@ -16,6 +16,8 @@ void (*check_opcode(char *str))(stack_t **, unsigned int, char *)
 		{"div", div_func},
 		{"mul", mul_func},
 		{"mod", mod_func},
+		{"pchar", pchar_func},
+		{"pstr", pstr_func},
 		{NULL, NULL}
 	};
 
