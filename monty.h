@@ -65,7 +65,7 @@ char *compose_err_str(char *str, char *filename);
 char **split_string(char *line);
 char *_strdup(char *str);
 int check_4_alpha(char *str);
-int str_to_int(char *input);
+int str_to_int(char *input, int *res);
 void free_str_arr(char **str_arr);
 void free_stack(stack_t *head);
 

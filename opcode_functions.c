@@ -12,25 +12,19 @@ void push_func(stack_t **stack, unsigned int line_number, char *data_n)
 {
 	stack_t *new_node;
 	char *str;
-	int n;
+	int n, res = 0;
 
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 		return;
-	if (data_n == NULL)
+	n = str_to_int(data_n, &res);
+	if (n == -1)
 	{
 		str = compose_err("L%u: usage: push integer\n", line_number);
 		write_err(str);
 		exit(EXIT_FAILURE);
 	}
-	n = atoi(data_n);
-	if (n == 0)
-	{
-		str = compose_err("L%u: usage: push integer\n", line_number);
-		write_err(str);
-		exit(EXIT_FAILURE);
-	}
-	new_node->n = n;
+	new_node->n = res;
 	new_node->prev = NULL;
 	new_node->next = *stack;
 	if ((*stack) != NULL)

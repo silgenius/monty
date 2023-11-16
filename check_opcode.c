@@ -16,7 +16,7 @@ void (*check_opcode(char *str))(stack_t **, unsigned int, char *)
 		{"div", div_func},
 		{"mul", mul_func},
 		{"mod", mod_func},
-		{"NULL", NULL}
+		{NULL, NULL}
 	};
 
 	while (opcode_list[i].opcode != NULL)

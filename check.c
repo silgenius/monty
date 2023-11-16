@@ -19,22 +19,25 @@ int check_4_alpha(char *str)
 	return (x);
 }
 
-int str_to_int(char *input)
+int str_to_int(char *input, int *res)
 {
-	int result = 0;
 	char *ptr = input;
+	int sign = 1, x = 0;
 
-	while (*ptr != '\0' && *ptr != '\n')
+	if (ptr == NULL)
+		return (-1);
+	for (; ptr[x] != '\0' && ptr[x] != '\n'; x++)
 	{
-		if (!(*ptr >= 48 && *ptr <= 57))
+		if (ptr[x] == '-' && x == 0)
 		{
+			sign = -1;
+			continue;
+		}
+		if (!(ptr[x] >= 48 && ptr[x] <= 57))
 			return (-1);
-		}
 		else
-		{
-			result = result * 10 + (*ptr - '0');
-		}
-		ptr++;
+			*res = *res * 10 + (ptr[x] - '0');
 	}
-	return (result);
+	*res = *res * sign;
+	return (1);
 }
