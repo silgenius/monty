@@ -56,6 +56,8 @@ void mul_func(stack_t **stack, unsigned int line_number, char *data_n);
 void mod_func(stack_t **stack, unsigned int line_number, char *data_n);
 void pstr_func(stack_t **stack, unsigned int line_number, char *data_n);
 void pchar_func(stack_t **stack, unsigned int line_number, char *data_n);
+void rotl_func(stack_t **stack, unsigned int line_number, char *data_n);
+void rotr_func(stack_t **stack, unsigned int line_number, char *data_n);
 
 char *_strsep(char **str, char *delim);
 ssize_t read_line(char **lineptr, ssize_t *bufsize, FILE *stream);

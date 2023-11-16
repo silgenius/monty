@@ -94,3 +94,57 @@ void pstr_func(stack_t **stack, unsigned int line_number, char *data_n)
 	}
 	printf("\n");
 }
+
+/**
+ * rotl_func - rotates the stack to the top
+ * @stack: pointer to the head of the double linked list
+ * @line_number: command line number
+ * @data_n: new_node data
+ * Return: void
+ */
+
+void rotl_func(stack_t **stack, unsigned int line_number, char *data_n)
+{
+	stack_t *curr, *tmp;
+
+	(void)line_number;
+	(void)data_n;
+	curr = *stack;
+	if (curr == NULL || curr->next == NULL)
+		return;
+	tmp = curr;
+	curr->next->prev = curr->prev;
+	*stack = curr = curr->next;;
+	while (curr->next != NULL)
+		curr = curr->next;
+	curr->next = tmp;
+	tmp->prev = curr;
+	tmp->next = NULL;
+}
+
+/**
+ * rotr_func - rotates the stack to the bottom
+ * @stack: pointer to the head of the double linked list
+ * @line_number: command line number
+ * @data_n: new_node data
+ * Return: void
+ */
+
+void rotr_func(stack_t **stack, unsigned int line_number, char *data_n)
+{
+	stack_t *curr, *tmp;
+
+	(void)line_number;
+	(void)data_n;
+	curr = *stack;
+	if (curr == NULL || curr->next == NULL)
+		return;
+	while (curr->next->next != NULL)
+		curr = curr->next;
+	tmp = curr->next;
+	tmp->prev = NULL;
+	curr->next = NULL;
+	tmp->next = *stack;
+	(*stack)->prev = tmp;
+	*stack = tmp;
+}
