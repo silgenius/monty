@@ -1,8 +1,8 @@
 #include "monty.h"
 
 /**
- * mod_func - computes the rest of the division of the second top element by the
-              top element.
+ * mod_func - computes the rest of the division of the second
+ * top element by the top element.
  * @stack: pointer to the head of the double linked list
  * @line_number: command line number
  * @data_n: new_node data
@@ -114,7 +114,7 @@ void rotl_func(stack_t **stack, unsigned int line_number, char *data_n)
 		return;
 	tmp = curr;
 	curr->next->prev = curr->prev;
-	*stack = curr = curr->next;;
+	*stack = curr = curr->next;
 	while (curr->next != NULL)
 		curr = curr->next;
 	curr->next = tmp;

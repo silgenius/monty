@@ -35,8 +35,7 @@ int str_to_int(char *input, int *res)
 		}
 		if (!(ptr[x] >= 48 && ptr[x] <= 57))
 			return (-1);
-		else
-			*res = *res * 10 + (ptr[x] - '0');
+		*res = *res * 10 + (ptr[x] - '0');
 	}
 	*res = *res * sign;
 	return (1);

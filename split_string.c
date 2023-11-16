@@ -1,5 +1,11 @@
 #include "monty.h"
 
+/**
+ * split_string - splits a string into an array of tokens
+ * @line: string
+ * Return: array of tokens
+ */
+
 char **split_string(char *line)
 {
 	char *ptr, *str;

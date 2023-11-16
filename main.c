@@ -1,5 +1,7 @@
 #include "monty.h"
 
+int mode = 1;
+
 int main(int argc, char *argv[])
 {
 	char *str = "USAGE: monty file\n";

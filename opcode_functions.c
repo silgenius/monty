@@ -10,7 +10,7 @@
 
 void push_func(stack_t **stack, unsigned int line_number, char *data_n)
 {
-	stack_t *new_node;
+	stack_t *new_node, *curr = *stack;
 	char *str;
 	int n, res = 0;
 
@@ -25,11 +25,30 @@ void push_func(stack_t **stack, unsigned int line_number, char *data_n)
 		exit(EXIT_FAILURE);
 	}
 	new_node->n = res;
-	new_node->prev = NULL;
-	new_node->next = *stack;
-	if ((*stack) != NULL)
-		(*stack)->prev = new_node;
-	(*stack) = new_node;
+	if (mode)
+	{
+		new_node->prev = NULL;
+		new_node->next = *stack;
+		if ((*stack) != NULL)
+			(*stack)->prev = new_node;
+		(*stack) = new_node;
+	}
+	else
+	{
+		new_node->next = NULL;
+		if ((*stack) == NULL)
+		{
+			new_node->prev = NULL;
+			*stack = new_node;
+		}
+		else
+		{
+			while (curr->next != NULL)
+				curr = curr->next;
+			curr->next = new_node;
+			new_node->prev = curr;
+		}
+	}
 }
 
 /**

@@ -9,6 +9,9 @@
 #define BUFF_SIZE 1024
 #define line_size 64
 
+/* mode - indicates stack (1) or queue (0) operation */
+extern int mode;
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -43,6 +46,7 @@ typedef struct instruction_s
 void (*check_opcode(char *str))(stack_t **, unsigned int, char *);
 void open_file(char *filename);
 int interprete_opcode(stack_t **stack, char **str_arr, int line_no);
+
 void push_func(stack_t **stack, unsigned int line_number, char *data_n);
 void pall_func(stack_t **stack, unsigned int line_number, char *data_n);
 void pint_func(stack_t **stack, unsigned int line_number, char *data_n);
@@ -58,6 +62,8 @@ void pstr_func(stack_t **stack, unsigned int line_number, char *data_n);
 void pchar_func(stack_t **stack, unsigned int line_number, char *data_n);
 void rotl_func(stack_t **stack, unsigned int line_number, char *data_n);
 void rotr_func(stack_t **stack, unsigned int line_number, char *data_n);
+void stack_func(stack_t **stack, unsigned int line_number, char *data_n);
+void queue_func(stack_t **stack, unsigned int line_number, char *data_n);
 
 char *_strsep(char **str, char *delim);
 ssize_t read_line(char **lineptr, ssize_t *bufsize, FILE *stream);

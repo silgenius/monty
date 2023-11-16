@@ -20,13 +20,15 @@ void (*check_opcode(char *str))(stack_t **, unsigned int, char *)
 		{"pstr", pstr_func},
 		{"rotl", rotl_func},
 		{"rotr", rotr_func},
+		{"queue", queue_func},
+		{"stack", stack_func},
 		{NULL, NULL}
 	};
 
 	while (opcode_list[i].opcode != NULL)
 	{
 		if (strcmp(opcode_list[i].opcode, str) == 0)
-			return opcode_list[i].f;
+			return (opcode_list[i].f);
 		i++;
 	}
 

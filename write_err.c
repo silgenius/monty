@@ -1,10 +1,21 @@
 #include "monty.h"
 
+/**
+ * write_err - writes an error msg to stdout
+ * @str: string
+ * Return: void
+ */
+
 void write_err(char *str)
 {
 	write(2, str, strlen(str));
 	free(str);
 }
+
+/**
+ * malloc_error - writes an error msg to stdout on malloc failure
+ * Return: void
+ */
 
 void malloc_error(void)
 {
@@ -12,6 +23,13 @@ void malloc_error(void)
 
 	write(2, str, strlen(str));
 }
+
+/**
+ * compose_err - composes a string from a string format and an integer
+ * @str: string
+ * @num: number
+ * Return: on success, the composed string or NULL on failure
+ */
 
 char *compose_err(char *str, unsigned int num)
 {
@@ -42,6 +60,13 @@ char *compose_err(char *str, unsigned int num)
 	*err = '\0';
 	return (ptr);
 }
+
+/**
+ * compose_err_str - composes a string from a string format and a string
+ * @str: string format
+ * @filename: string
+ * Return: on success, the composed string or NULL on failure
+ */
 
 char *compose_err_str(char *str, char *filename)
 {
