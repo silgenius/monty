@@ -91,6 +91,13 @@ void div_func(stack_t **stack, unsigned int line_number, char *data_n)
 	curr = *stack;
 	if (curr != NULL && curr->next != NULL)
 	{
+		if (curr->n == 0)
+		{
+			str = compose_err("L%u: division by zero\n",
+					  line_number);
+			write_err(str);
+			exit(EXIT_FAILURE);
+		}
 		res = curr->next->n / curr->n;
 		curr->next->n = res;
 		pop_func(stack, line_number, "nil");

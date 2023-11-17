@@ -3,7 +3,8 @@
 /**
  * interprete_opcode - Interprets and executes an opcode.
  * @stack: Pointer to a pointer to the stack.
- * @str_arr: Pointer to an array of strings containing the opcode and arguments.
+ * @str_arr: Pointer to an array of strings containing the opcode
+ * and arguments.
  * @line_no: The current line number being interpreted.
  *
  * Return: 1 if successful, 0 otherwise.

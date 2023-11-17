@@ -41,10 +41,11 @@ void open_file(char *filename)
 				continue;
 			}
 			str_arr = split_string(line);
-			interprete_opcode(&stack, str_arr, line_number++);
+			interprete_opcode(&stack, str_arr, line_number);
 			free_str_arr(str_arr);
 		}
 		free(line);
+		line_number++;
 	}
 	free_stack(stack);
 	fclose(fptr);

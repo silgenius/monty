@@ -107,12 +107,13 @@ void pint_func(stack_t **stack, unsigned int line_number, char *data_n)
 
 void pop_func(stack_t **stack, unsigned int line_number, char *data_n)
 {
-	stack_t *curr = *stack;
+	stack_t *curr = *stack, *tmp;
 	char *str;
 
 	(void)data_n;
 	if (curr != NULL)
 	{
+		tmp = curr;
 		if (curr->next != NULL)
 		{
 			curr->next->prev = NULL;
@@ -120,6 +121,7 @@ void pop_func(stack_t **stack, unsigned int line_number, char *data_n)
 		}
 		else
 			*stack = NULL;
+		free(tmp);
 		return;
 	}
 
