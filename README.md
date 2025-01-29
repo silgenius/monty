@@ -20,4 +20,5 @@ Welcome to the Monty Interpreter project! This initiative focuses on creating a 
 Your code will undergo compilation using the following command:
 ```bash
 $ gcc -Wall -Werror -Wextra -pedantic -std=c89 *.c -o monty
+```
 
